@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# check if python3 is installed
+python3 --version > /dev/null 2>&1
+if [ $? -ne 0 ]; then
+	echo "Python3 is not installed"
+	exit 1
+fi
+
+# Create a virtual environment named 'venv'
+python3 -m venv venv
+
+# Activate the virtual environment
+source venv/bin/activate
+
+# Install Lanchain
+pip install langchain
+pip install langchain -qU langchain-openai
